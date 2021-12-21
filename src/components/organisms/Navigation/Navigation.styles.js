@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Wrapper = styled.nav`
   margin-top: -1px;
   flex-basis: 100%;
+  height: 71px;
   display: flex;
   justify-content: flex-end;
   padding-right: 15px;
@@ -25,4 +26,15 @@ export const Link = styled(NavLink)`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  transition: 0.35s;
+
+  &.active {
+    transition: 0.35s;
+    height: 65px;
+    background-color: white;
+    & svg {
+      fill: ${({ theme }) => theme.colors.darkGrey};
+      stroke: ${({ theme }) => theme.colors.darkGrey};
+    }
+  }
 `;
