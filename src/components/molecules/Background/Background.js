@@ -4,11 +4,13 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  background-color: #121212;
 `;
 
 const Background = ({ children }) => {

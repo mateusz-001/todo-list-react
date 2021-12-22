@@ -11,9 +11,8 @@ export const BackgroundElement = styled.div`
   box-shadow: inset -25px -15px 40px rgba(0, 0, 0, 0.3);
   background-color: rgb(49, 0, 133);
   background-image: linear-gradient(146deg, rgba(49, 0, 133, 1) 20%, rgba(100, 57, 255, 1) 100%);
-  overflow: hidden;
   &:nth-child(2) {
-    top: 80%;
+    top: 75%;
     left: 30%;
     background-color: rgb(133, 0, 123);
     background-image: linear-gradient(197deg, rgba(133, 0, 123, 1) 20%, rgba(183, 57, 255, 1) 100%);
