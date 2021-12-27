@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ReactComponent as MoreIcon } from 'assets/icons/more.svg';
 import { ReactComponent as CheckIcon } from 'assets/icons/check.svg';
 import { ReactComponent as DeleteIcon } from 'assets/icons/delete.svg';
@@ -8,13 +8,16 @@ import { Wrapper } from './TaskBox.styles';
 import { ContentWrapper } from './TaskBox.styles';
 import { ButtonWrapper } from './TaskBox.styles';
 import { Header } from 'components/atoms/Header';
+import { NotesContext } from 'providers/NotesProvider';
 
-const TaskBox = ({ isSmall, ...props }) => {
+const TaskBox = ({ isSmall, notesData: { title, text }, ...props }) => {
+  const { deleteNote } = useContext(NotesContext);
+
   return (
     <Wrapper>
       <ContentWrapper>
-        <Header isSmall>Wyrzuć śmieci</Header>
-        <Text>Lorem ipsum set amet</Text>
+        <Header isSmall>{title}</Header>
+        <Text>{text}</Text>
       </ContentWrapper>
       <ButtonWrapper>
         <Button isSmall>
@@ -23,7 +26,7 @@ const TaskBox = ({ isSmall, ...props }) => {
         <Button isSmall>
           <CheckIcon />
         </Button>
-        <Button isSmall>
+        <Button isSmall onClick={() => deleteNote(title)}>
           <DeleteIcon />
         </Button>
       </ButtonWrapper>

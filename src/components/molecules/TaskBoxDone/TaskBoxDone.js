@@ -8,12 +8,12 @@ import { ContentWrapper } from './TaskBoxDone.styles';
 import { ButtonWrapper } from './TaskBoxDone.styles';
 import { Header } from 'components/atoms/Header';
 
-const TaskBoxDone = ({ isSmall, ...props }) => {
+const TaskBoxDone = ({ isSmall, notesData: { title, text }, ...props }) => {
   return (
     <Wrapper>
       <ContentWrapper>
-        <Header isSmall>Wyrzuć śmieci</Header>
-        <Text>Lorem ipsum set amet</Text>
+        <Header isSmall>{title}</Header>
+        <Text>{text}</Text>
       </ContentWrapper>
       <ButtonWrapper>
         <Button isSmall>
