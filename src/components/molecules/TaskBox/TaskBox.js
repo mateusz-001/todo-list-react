@@ -10,8 +10,9 @@ import { ButtonWrapper } from './TaskBox.styles';
 import { Header } from 'components/atoms/Header';
 import { NotesContext } from 'providers/NotesProvider';
 
-const TaskBox = ({ isSmall, notesData: { title, text }, ...props }) => {
+const TaskBox = ({ isSmall, isDone, notesData: { title, text, uuid, done }, ...props }) => {
   const { deleteNote } = useContext(NotesContext);
+  const { markDone } = useContext(NotesContext);
 
   return (
     <Wrapper>
@@ -23,10 +24,10 @@ const TaskBox = ({ isSmall, notesData: { title, text }, ...props }) => {
         <Button isSmall>
           <MoreIcon />
         </Button>
-        <Button isSmall>
+        <Button isSmall onClick={() => markDone(uuid)}>
           <CheckIcon />
         </Button>
-        <Button isSmall onClick={() => deleteNote(title)}>
+        <Button isSmall onClick={() => deleteNote(uuid)}>
           <DeleteIcon />
         </Button>
       </ButtonWrapper>

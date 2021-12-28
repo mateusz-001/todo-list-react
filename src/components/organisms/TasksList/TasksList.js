@@ -10,12 +10,16 @@ import { TaskWrapper } from './TasksList.styles';
 const TasksList = () => {
   const { notes } = useContext(NotesContext);
 
+  const undoneItems = notes.filter((item) => {
+    return item.done === false;
+  });
+
   return (
     <Wrapper>
       <Header>Tasks list</Header>
       <TaskWrapper>
-        {notes.map((notesData) => (
-          <TaskBox key={notesData.title} notesData={notesData} />
+        {undoneItems.map((notesData) => (
+          <TaskBox key={notesData.uuid} notesData={notesData} />
         ))}
       </TaskWrapper>
     </Wrapper>

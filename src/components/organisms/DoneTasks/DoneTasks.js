@@ -10,12 +10,16 @@ import { NoteShape } from 'types';
 const DoneTasks = () => {
   const { notes } = useContext(NotesContext);
 
+  const doneItems = notes.filter((item) => {
+    return item.done === true;
+  });
+
   return (
     <Wrapper>
       <Header>Done tasks</Header>
       <TaskWrapper>
-        {notes.map((notesData) => (
-          <TaskBoxDone key={notesData.title} notesData={notesData} />
+        {doneItems.map((notesData) => (
+          <TaskBoxDone key={notesData.uuid} notesData={notesData} />
         ))}
       </TaskWrapper>
     </Wrapper>

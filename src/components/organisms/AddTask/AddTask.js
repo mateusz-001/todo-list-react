@@ -13,8 +13,10 @@ const Wrapper = styled.form`
 `;
 
 const initialFormState = {
+  uuid: null,
   title: '',
   text: '',
+  done: false,
 };
 
 const AddTask = () => {
@@ -22,7 +24,6 @@ const AddTask = () => {
   const { handleAddNote } = useContext(NotesContext);
 
   const handleInputChange = (e) => {
-    console.log(formValues);
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
