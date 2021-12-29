@@ -6,21 +6,20 @@ import React, { useContext } from 'react';
 import { NoteShape } from 'types';
 import { Wrapper } from './TasksList.styles';
 import { TaskWrapper } from './TasksList.styles';
+import { Text } from 'components/atoms/Text';
 
-const TasksList = () => {
-  const { notes } = useContext(NotesContext);
-
-  const undoneItems = notes.filter((item) => {
-    return item.done === false;
-  });
+const TasksList = ({ isBig, ...props }) => {
+  const { undoneItems } = useContext(NotesContext);
 
   return (
     <Wrapper>
       <Header>Tasks list</Header>
       <TaskWrapper>
-        {undoneItems.map((notesData) => (
-          <TaskBox key={notesData.uuid} notesData={notesData} />
-        ))}
+        {undoneItems.length ? (
+          undoneItems.map((notesData) => <TaskBox key={notesData.uuid} notesData={notesData} />)
+        ) : (
+          <Text isBig>No tasks on list</Text>
+        )}
       </TaskWrapper>
     </Wrapper>
   );

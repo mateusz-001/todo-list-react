@@ -18,7 +18,7 @@ export const Input = styled.input`
   line-height: 1.4;
   transition: 0.3s;
   &:focus {
-    box-shadow: 0 0px 10px 4px rgba(48, 0, 110, 0.7);
+    box-shadow: 0 0px 6px 4px rgba(48, 0, 110, 0.7);
     outline: none;
   }
 `;

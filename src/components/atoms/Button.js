@@ -24,7 +24,7 @@ export const Button = styled.button`
   &:focus,
   :hover {
     transform: scale(1.05);
-    box-shadow: 0 0px 6px 6px rgba(48, 0, 110, 0.7);
+    box-shadow: 0 0px 6px 4px rgba(48, 0, 110, 0.7);
     outline: none;
   }
   & svg {

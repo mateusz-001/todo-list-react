@@ -6,21 +6,20 @@ import { TaskWrapper } from './DoneTasks.styles';
 import PropTypes from 'prop-types';
 import { NotesContext } from 'providers/NotesProvider';
 import { NoteShape } from 'types';
+import { Text } from 'components/atoms/Text';
 
-const DoneTasks = () => {
-  const { notes } = useContext(NotesContext);
-
-  const doneItems = notes.filter((item) => {
-    return item.done === true;
-  });
+const DoneTasks = ({ isBig, ...props }) => {
+  const { doneItems } = useContext(NotesContext);
 
   return (
     <Wrapper>
       <Header>Done tasks</Header>
       <TaskWrapper>
-        {doneItems.map((notesData) => (
-          <TaskBoxDone key={notesData.uuid} notesData={notesData} />
-        ))}
+        {doneItems.length ? (
+          doneItems.map((notesData) => <TaskBoxDone key={notesData.uuid} notesData={notesData} />)
+        ) : (
+          <Text isBig>Nothing is done</Text>
+        )}
       </TaskWrapper>
     </Wrapper>
   );

@@ -10,21 +10,18 @@ import { ButtonWrapper } from './TaskBox.styles';
 import { Header } from 'components/atoms/Header';
 import { NotesContext } from 'providers/NotesProvider';
 
-const TaskBox = ({ isSmall, isDone, notesData: { title, text, uuid, done }, ...props }) => {
+const TaskBox = ({ isSmall, isDone, notesData: { title, text, uuid }, ...props }) => {
   const { deleteNote } = useContext(NotesContext);
-  const { markDone } = useContext(NotesContext);
+  const { toggleDone } = useContext(NotesContext);
 
   return (
     <Wrapper>
       <ContentWrapper>
-        <Header isSmall>{title}</Header>
-        <Text>{text}</Text>
+        {title.length > 20 ? <Header isSmall>{`${title.substr(0, 20)}...`}</Header> : <Header isSmall>{title}</Header>}
+        {text.length > 30 ? <Text>{`${text.substr(0, 32)}...`}</Text> : <Text>{text}</Text>}
       </ContentWrapper>
       <ButtonWrapper>
-        <Button isSmall>
-          <MoreIcon />
-        </Button>
-        <Button isSmall onClick={() => markDone(uuid)}>
+        <Button isSmall onClick={() => toggleDone(uuid)}>
           <CheckIcon />
         </Button>
         <Button isSmall onClick={() => deleteNote(uuid)}>

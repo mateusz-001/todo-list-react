@@ -26,10 +26,28 @@ const NotesProvider = ({ children }) => {
     setNotes(filteredNotes);
   };
 
-  const markDone = (uuid) => {
-    const filteredNotes = notes.filter((note) => (note.done = true !== uuid));
-    setNotes(filteredNotes);
+  const toggleDone = (uuid) => {
+    setNotes(
+      notes.map((item) => {
+        if (item.uuid == uuid) {
+          return {
+            ...item,
+            done: !item.done,
+          };
+        } else {
+          return item;
+        }
+      })
+    );
   };
+
+  const doneItems = notes.filter((item) => {
+    return item.done === true;
+  });
+
+  const undoneItems = notes.filter((note) => {
+    return note.done === false;
+  });
 
   return (
     <NotesContext.Provider
@@ -37,7 +55,9 @@ const NotesProvider = ({ children }) => {
         notes,
         deleteNote,
         handleAddNote,
-        markDone,
+        toggleDone,
+        doneItems,
+        undoneItems,
       }}
     >
       {children}

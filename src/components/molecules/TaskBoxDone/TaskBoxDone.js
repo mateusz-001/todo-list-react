@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ReactComponent as MoreIcon } from 'assets/icons/more.svg';
+import { ReactComponent as CheckIcon } from 'assets/icons/check.svg';
 import { ReactComponent as DeleteIcon } from 'assets/icons/delete.svg';
 import { Text } from 'components/atoms/Text';
 import { Button } from 'components/atoms/Button';
@@ -11,16 +11,17 @@ import { NotesContext } from 'providers/NotesProvider';
 
 const TaskBoxDone = ({ isSmall, notesData: { title, text, uuid }, ...props }) => {
   const { deleteNote } = useContext(NotesContext);
+  const { toggleDone } = useContext(NotesContext);
 
   return (
     <Wrapper>
       <ContentWrapper>
-        <Header isSmall>{title}</Header>
-        <Text>{text}</Text>
+        {title.length > 20 ? <Header isSmall>{`${title.substr(0, 20)}...`}</Header> : <Header isSmall>{title}</Header>}
+        {text.length > 30 ? <Text>{`${text.substr(0, 32)}...`}</Text> : <Text>{text}</Text>}
       </ContentWrapper>
       <ButtonWrapper>
-        <Button isSmall>
-          <MoreIcon />
+        <Button isSmall onClick={() => toggleDone(uuid)}>
+          <CheckIcon />
         </Button>
         <Button isSmall onClick={() => deleteNote(uuid)}>
           <DeleteIcon />

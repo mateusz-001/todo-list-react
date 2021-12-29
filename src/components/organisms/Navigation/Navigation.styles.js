@@ -25,8 +25,10 @@ export const Link = styled(NavLink)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: row;
   align-items: center;
   transition: 0.35s;
+  position: relative;
 
   &.active {
     transition: 0.35s;
@@ -35,6 +37,9 @@ export const Link = styled(NavLink)`
     & svg {
       fill: ${({ theme }) => theme.colors.darkGrey};
       stroke: ${({ theme }) => theme.colors.darkGrey};
+    }
+    & p {
+      color: ${({ theme }) => theme.colors.darkGrey};
     }
   }
 `;
