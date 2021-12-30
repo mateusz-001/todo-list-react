@@ -23,4 +23,16 @@ export const BackgroundElement = styled.div`
     background-color: rgb(100, 0, 122);
     background-image: linear-gradient(180deg, rgba(100, 0, 122, 1) 20%, rgba(0, 39, 255, 1) 100%);
   }
+  @media ${({ theme }) => theme.mediaQuery.laptop} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, -50%);
+    &:nth-child(2) {
+      transform: translate(calc(150px - 50%), calc(50px - 50%));
+    }
+    &:nth-child(3) {
+      transform: translate(calc(300px - 50%), calc(-50px - 50%));
+    }
+  }
 `;

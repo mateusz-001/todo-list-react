@@ -18,7 +18,7 @@ const TaskBox = ({ isSmall, isDone, notesData: { title, text, uuid }, ...props }
     <Wrapper>
       <ContentWrapper>
         {title.length > 20 ? <Header isSmall>{`${title.substr(0, 20)}...`}</Header> : <Header isSmall>{title}</Header>}
-        {text.length > 30 ? <Text>{`${text.substr(0, 32)}...`}</Text> : <Text>{text}</Text>}
+        {text.length > 35 ? <Text>{`${text.substr(0, 32)}...`}</Text> : <Text>{text}</Text>}
       </ContentWrapper>
       <ButtonWrapper>
         <Button isSmall onClick={() => toggleDone(uuid)}>

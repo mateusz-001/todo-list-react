@@ -9,4 +9,8 @@ export const Header = styled.h1`
   flex-basis: 100%;
   margin: 10px auto;
   padding: ${({ isSmall }) => (isSmall ? '0' : '0 10px 10px 10px')};
+
+  @media ${({ theme }) => theme.mediaQuery.tablet} {
+    font-size: ${({ isSmall, theme }) => (isSmall ? theme.fontSize.l : theme.fontSize.xxl)};
+  }
 `;

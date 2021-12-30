@@ -6,10 +6,17 @@ import { Button } from 'components/atoms/Button';
 import { NotesContext } from 'providers/NotesProvider';
 
 const Wrapper = styled.form`
+  flex-basis: 100%;
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
   justify-content: center;
+
+  @media ${({ theme }) => theme.mediaQuery.tablet} {
+    max-width: 85%;
+    margin: 0 auto;
+    justify-content: center;
+  }
 `;
 
 const initialFormState = {

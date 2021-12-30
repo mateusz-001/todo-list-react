@@ -21,4 +21,9 @@ export const Input = styled.input`
     box-shadow: 0 0px 6px 4px rgba(48, 0, 110, 0.7);
     outline: none;
   }
+
+  @media ${({ theme }) => theme.mediaQuery.tablet} {
+    flex-basis: 100%;
+    font-size: ${({ theme }) => theme.fontSize.l};
+  }
 `;

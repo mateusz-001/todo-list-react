@@ -42,4 +42,13 @@ export const Link = styled(NavLink)`
       color: ${({ theme }) => theme.colors.darkGrey};
     }
   }
+
+  @media ${({ theme }) => theme.mediaQuery.tablet} {
+    font-size: ${({ theme }) => theme.fontSize.m};
+    width: 55px;
+    height: 70px;
+    &.active {
+      height: 75px;
+    }
+  }
 `;

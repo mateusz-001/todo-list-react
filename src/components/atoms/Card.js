@@ -10,4 +10,13 @@ export const Card = styled.div`
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   transition: 0.3s;
+
+  @media ${({ theme }) => theme.mediaQuery.mobileL} {
+    width: 380px;
+  }
+
+  @media ${({ theme }) => theme.mediaQuery.tablet} {
+    width: 550px;
+    min-height: 680px;
+  }
 `;

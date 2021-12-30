@@ -10,6 +10,12 @@ export const Wrapper = styled.div`
   border-radius: 12px;
   padding: 5px 15px;
   margin-bottom: 10px;
+  @media ${({ theme }) => theme.mediaQuery.mobileL} {
+    margin: 10px auto;
+  }
+  @media ${({ theme }) => theme.mediaQuery.tablet} {
+    margin: 10px auto;
+  }
 `;
 
 export const ContentWrapper = styled.div`

@@ -5,6 +5,11 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   padding: 20px;
   justify-content: center;
+  @media ${({ theme }) => theme.mediaQuery.tablet} {
+    max-width: 85%;
+    margin: 0 auto;
+    justify-content: center;
+  }
 `;
 
 export const TaskWrapper = styled.div`

@@ -8,4 +8,11 @@ export const Label = styled.label`
   letter-spacing: 1.5px;
   flex-basis: 100%;
   padding: 10px 0 5px 15px;
+
+  @media ${({ theme }) => theme.mediaQuery.mobileL} {
+    padding: 10px 0 5px 35px;
+  }
+  @media ${({ theme }) => theme.mediaQuery.tablet} {
+    padding: 10px 0 5px 10px;
+  }
 `;

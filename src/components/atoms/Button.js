@@ -7,9 +7,9 @@ export const Button = styled.button`
   border-top: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: ${({ isSmall }) => (isSmall ? '50%' : '12px')};
   width: ${({ isSmall }) => (isSmall ? '29px' : '150px')};
-  height: ${({ isSmall }) => (isSmall ? '29px' : 'auto')};
+  height: ${({ isSmall }) => (isSmall ? '29px' : '40px')};
   padding: ${({ isSmall }) => (isSmall ? '6px' : '7px')};
-  margin-top: ${({ isSmall }) => (isSmall ? '2px' : '10px')}10px;
+  margin-top: ${({ isSmall }) => (isSmall ? '2px' : '10px')};
   color: ${({ theme }) => theme.colors.darkPurple};
   font-size: ${({ theme }) => theme.fontSize.l};
   font-family: 'Ubuntu';
@@ -32,5 +32,9 @@ export const Button = styled.button`
     height: 100%;
     fill: ${({ theme }) => theme.colors.white};
     opacity: 0.7;
+  }
+
+  @media ${({ theme }) => theme.mediaQuery.tablet} {
+    height: ${({ isSmall }) => (isSmall ? '29px' : '45px')};
   }
 `;
